@@ -14,6 +14,7 @@ const service = {
 
                 //return response
                 const result = {
+                    location:location,
                     temperature:temperature,
                     description:description
                 };
@@ -26,12 +27,6 @@ const service = {
 // create soap server
 
 const wsdl = require('fs').readFileSync('./weatherService.wsdl', 'utf8');
-// const server = soap.listen({ path:'/weather', xml:wsdl}, function(){
-//     console.log('SOAP server running on http://localhost:8080/weather?wsdl' )
-// });
-
-// //attach service implementation to server
-// server.addService(xml, service, {suppressStack:true});
 
 var server = http.createServer(function(request,response) {
     response.end('404: Not Found: ' + request.url);
